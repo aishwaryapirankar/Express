@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+int a[20];
+int n;
+void display();
+void sort();
+void search();
+void reverse();
+int main()
+{
+	int i;
+	int opt,choice,val;
+	cout<<"Enter the number of elements:";
+	cin>>n;
+	for (i=0;i<n;i++)
+	{
+		cout<<"Enter the element:";
+		cin>>a[i];
+	}
+	do
+	{
+		cout<<"1.Display\n 2.Sort\n 3.Search\n 4.Reverse\n";
+		cout<<"Enter your choice:";
+		cin>>choice;
+		switch(choice)
+		{
+			case 1:
+				display();
+
+				break;
+			case 2:
+				sort();	
+				break;
+			case 3:
+				cout<<"enter the value to be searched:";
+				cin>>val;
+				search();
+				break;
+			case 4:
+				reverse();
+				break;
+			default:
+				cout<<"Invalid Choice";
+				break;
+		}
+	}
+	while(choice!=5);
+}
+void search()
+{
+	int i,val;
+	for(i=0;i<n;i++)
+	{
+		if(a[i]==val)
+		{
+			cout<<"Element found at position:"<<i;
+			break;
+		}
+	}
+	if(i==n)
+	{
+		cout<<"Element not found";
+	}
+}
+void display()
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<"\t"<<a[i];
+	}
+}
+void sort()
+{
+	int i,j;
+	int temp;
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n-i-1;j++)
+		{
+			if(a[j]>a[j+1])
+			{
+				temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+			}
+		}
+	}
+	cout<<"Sorted Array:";
+	display();
+}
+void reverse()
+{
+	int i;
+	for(i=n-1;i>=0;i--)
+	{
+		cout<<"\t"<<a[i];
+	}
+}
